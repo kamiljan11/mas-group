@@ -15,4 +15,4 @@ A custom B2B operations platform running across MAS Group's verticals — **auto
 React · TypeScript · Supabase · Vercel · Google Apps Script · Twilio · n8n
 
 ## Source
-The application source is **private** (proprietary operational code). This repository is a public reference — the product is live at [masgroup.is](https://masgroup.is).
+Application source: [`maskalkulator`](https://github.com/kamiljan11/maskalkulator) — proprietary operational code; access may be restricted. This repository is the public write-up — the product is live at [masgroup.is](https://masgroup.is).

@@ -1,36 +1,29 @@
 # RUNBOOK — operacje i awarie
 
-<!-- Uzupelnij pola [..] przy wdrozeniu projektu. Ten plik czyta czlowiek o 3 w nocy — zero prozy, same komendy. -->
+Ten repo nie hostuje niczego — jest dokumentacją. "Awaria" tutaj oznacza awarię PLATFORMY
+(`masgroup.is`), nie tego repo. To repo samo w sobie nie może "spaść".
 
 ## Podstawy
-- Produkcja: [URL]
-- Hosting: [gdzie stoi + link do panelu]
-- Repo: github.com/mountainallservice/[repo]
-- Sekrety: Infisical "MAS Group" (localhost:8222) — NIE w repo
+- Produkcja: https://www.masgroup.is (UWAGA: `https://masgroup.is` bez `www` nie odpowiada — brak nasłuchu HTTPS na apeksie, zweryfikowane `curl -v`)
+- Kod aplikacji: osobne repo [`maskalkulator`](https://github.com/kamiljan11/maskalkulator) (patrz README → Source)
+- Ten repo: github.com/kamiljan11/mas-group (tylko dokumentacja)
+- Sekrety: nie dotyczy tego repo (brak kodu, brak env)
 
 ## Deploy
-- Standard: merge do main -> [auto-deploy przez ... / komenda]
-- Reczny: `npm run build` -> [gdzie wrzucic dist]
+Nie dotyczy tego repo. Deploy platformy opisany (jeśli w ogóle) w `maskalkulator`.
 
-## Rollback (cel: <5 min)
+## Healthcheck
 ```bash
-git revert <sha-zlego-commita> && git push   # -> redeploy automatyczny
-# albo: przywroc poprzedni release/tag w panelu hostingu
+curl -I https://www.masgroup.is   # 200 = platforma wstaje
+curl -I https://masgroup.is       # oczekiwany timeout/redirect — NIE traktuj jako awarię platformy
 ```
-
-## Monitoring
-- Bledy runtime: Sentry [link do projektu] — alerty ida na mountainallservice@gmail.com
-- Healthcheck: [URL/status] — sprawdz najpierw to
-- CI: zakladka Actions w repo (Quality Gate musi byc zielony)
 
 ## Typowe awarie
 | Objaw | Pierwszy krok |
 |---|---|
-| Strona nie wstaje po deploy | rollback (wyzej), potem debug na branchu |
-| Blad 500 na akcji X | Sentry -> stack trace -> `systematic-debugging` |
-| Wygasly sekret/API key | Infisical -> zrotuj -> redeploy |
-| Domena/DNS | panel ISNIC / rejestratora |
+| `www.masgroup.is` nie odpowiada | Sprawdz hosting/DNS platformy — poza tym repo. Zacznij od `maskalkulator`. |
+| Ktoś zgłasza, że "masgroup.is nie działa" (bez www) | To znany, opisany stan apeksu (brak HTTPS) — nie panikuj, ale rozważ naprawę certyfikatu/redirectu po stronie hostingu |
+| Ktoś pyta o kod/logikę cenową/prowizje | Nie tutaj — skieruj do `maskalkulator`, sprawdź czy ma dostęp |
 
 ## Kontakty
-- Wlasciciel: Kamil Jan, mountainallservice@gmail.com
-- Klient: [imie, kontakt, SLA jesli jest]
+- Właściciel: Kamil Jan, mountainallservice@gmail.com

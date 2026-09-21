@@ -9,6 +9,7 @@ Kazdy PR dopisuje zmiany do [Unreleased]; przy release przenosimy pod numer wers
 - `docs/ARCHITECTURE.md`, `docs/adr/0001-public-repo-is-a-reference-not-the-source.md`, `LICENSE`, `docs/GLOSSARY.md`, `.github/pull_request_template.md`
 
 ### Changed
+- Wszystkie dokumenty (README, RUNBOOK, ARCHITECTURE, GLOSSARY, CLAUDE.md, ADR 0001 z adnotacją) wskazują platformę `https://maskalkulator.lovable.app`; `www.masgroup.is` to strona firmy, nie aplikacja
 - README/RUNBOOK: link "Live" poprawiony na `https://www.masgroup.is` — golo `masgroup.is` (bez www) nie ma nasluchu HTTPS (curl -v: connection timeout), tylko `http://` robi redirect na `www`
 - `docs/RUNBOOK.md` wypelniony realnymi danymi (healthcheck, kontakty) zamiast szablonowych `[...]`
 

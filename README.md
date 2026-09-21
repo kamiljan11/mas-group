@@ -2,7 +2,7 @@
 
 [![Quality Gate](https://github.com/kamiljan11/mas-group/actions/workflows/quality.yml/badge.svg)](https://github.com/kamiljan11/mas-group/actions/workflows/quality.yml)
 
-**Live:** [masgroup.is](https://www.masgroup.is) · **Status:** production · **Built & operated by** [Kamil Jan](https://kamiljan.com)
+**Live:** [maskalkulator.lovable.app](https://maskalkulator.lovable.app) · **Status:** production · **Built & operated by** [Kamil Jan](https://kamiljan.com)
 
 A custom B2B operations platform running across MAS Group's verticals — **auto parts, print and logistics** — in Iceland.
 
@@ -28,7 +28,7 @@ why it's split this way, and how to tell if it's still alive. See
 ## Checking it's alive
 
 ```bash
-curl -I https://www.masgroup.is   # 200 = up (note: www — bare masgroup.is has no HTTPS listener, see docs/RUNBOOK.md)
+curl -I https://maskalkulator.lovable.app   # 200 = up (the platform itself; www.masgroup.is is the company site, not this app)
 ```
 
 CI (`.github/workflows/quality.yml`) runs a secrets scan and Semgrep on this repo's own
@@ -36,7 +36,7 @@ content; the npm-based steps (lint/typecheck/test/build) no-op here (`if: hashFi
 because there's no application code in this repo to run them on.
 
 ## Source
-Application source: [`maskalkulator`](https://github.com/kamiljan11/maskalkulator) — proprietary operational code; access may be restricted. This repository is the public write-up — the product is live at [masgroup.is](https://www.masgroup.is).
+Application source: [`maskalkulator`](https://github.com/kamiljan11/maskalkulator) — proprietary operational code; access may be restricted. This repository is the public write-up — the product is live at [maskalkulator.lovable.app](https://maskalkulator.lovable.app).
 
 ## Licence
 

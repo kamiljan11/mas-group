@@ -3,7 +3,7 @@
 Data: 2026-09-05 | Status: przyjęte (widoczne w historii repo od 2026-08-10)
 
 **Kontekst:** `mas-group` jest publiczne na GitHubie (portfolio/audyt), ale sam produkt
-(platforma B2B na `masgroup.is`) ma logikę cenową, marże, dane klientów i strukturę prowizji,
+(platforma B2B na `maskalkulator.lovable.app`) ma logikę cenową, marże, dane klientów i strukturę prowizji,
 których Kamil nie chce trzymać w publicznym repo. Do 2026-08-10 README twierdziło wprost
 "The application source is private" — sformułowanie ogólnikowe, które nie mówiło, GDZIE kod
 faktycznie jest, tylko że nie tutaj.
@@ -25,7 +25,7 @@ GLOSSARY) — zero `package.json`, zero `src/`. Rzeczywisty kod platformy żyje 
 - CI w tym repo (`quality.yml`) sprawdza tylko treść dokumentacji (gitleaks, Semgrep) — kroki
   npm (lint/typecheck/test/build) pomijają się przez `hashFiles('package.json')`, bo nie ma czego
   budować. Zielona bramka oznacza "brak sekretów w docs", nie "platforma działa".
-- Jedyny wiarygodny "smoke test" tego repo to zewnętrzny `curl -I https://www.masgroup.is`
+- Jedyny wiarygodny "smoke test" tego repo to zewnętrzny `curl -I https://maskalkulator.lovable.app`
   (patrz `docs/RUNBOOK.md`) — nie lokalny test frameworka.
 - **Nierozwiązane świadomie**: widoczność `maskalkulator` na GitHubie (publiczne/prywatne) to
   osobna, jeszcze nie podjęta decyzja Kamila — ten ADR dotyczy WYŁĄCZNIE podziału
@@ -35,5 +35,10 @@ GLOSSARY) — zero `package.json`, zero `src/`. Rzeczywisty kod platformy żyje 
 **Pułapki dla przyszłego siebie:**
 - Nie dopisuj tu kodu "tymczasowo, żeby coś pokazać" — jeśli platforma kiedyś ma być publiczna,
   to osobna, świadoma decyzja (i osobny ADR), nie commit poboczny.
-- Link "Live" w README ma iść na `www.masgroup.is`, nie na gołe `masgroup.is` — apeks nie ma
-  nasłuchu HTTPS (zweryfikowane `curl -v`, connection timeout); patrz `docs/ARCHITECTURE.md`.
+- Link "Live" w README ma iść na platformę: `https://maskalkulator.lovable.app`.
+  `www.masgroup.is` to strona firmy, nie ta aplikacja.
+
+**Poprawka 2026-09-21 (Kamil):** wcześniejsza wersja tego ADR wskazywała `www.masgroup.is`
+jako platformę. To była pomyłka: pod tą domeną stoi strona firmy, a platforma (panel
+handlowca, kalkulatory, pipeline) działa pod `https://maskalkulator.lovable.app`. Decyzja o podziale
+wizytówka/źródło się nie zmienia, zmienia się tylko adres produktu.
